@@ -2,6 +2,7 @@ let imgBox = document.getElementById("imgBox");
 let qrImage = document.getElementById("qrImage");
 let qrText = document.getElementById("qrText");
 let downloadButton = document.getElementById("downloadButton");
+let themeSwitch = document.getElementById("themeSwitch");
 
 function generateQR() {
     if (qrText.value.length > 0) {
@@ -35,3 +36,7 @@ function downloadQR() {
         link.click();
     };
 }
+
+themeSwitch.addEventListener("change", () => {
+    document.body.classList.toggle("dark-theme");
+});

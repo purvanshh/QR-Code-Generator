@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="themeSwitch">
+        <label for="themeSwitch" class="toggle-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </label>
+    </div>
     <div class="container">
         <h1>QR Code Generator</h1>
         <p>Enter your text or URL</p>
@@ -17,7 +25,6 @@
         <button onclick="generateQR()">Generate QR Code</button>
         <button id="downloadButton" style="display:none;" onclick="downloadQR()">Download QR Code</button>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

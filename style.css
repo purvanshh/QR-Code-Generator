@@ -12,6 +12,11 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background 0.3s;
+}
+
+body.dark-theme {
+    background: #121212;
 }
 
 .container {
@@ -22,18 +27,34 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+body.dark-theme .container {
+    background: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .container h1 {
     font-size: 22px;
     color: #333;
     margin-bottom: 20px;
+    transition: color 0.3s;
+}
+
+body.dark-theme .container h1 {
+    color: #ffffff;
 }
 
 .container p {
     font-size: 14px;
     color: #666;
     margin-bottom: 12px;
+    transition: color 0.3s;
+}
+
+body.dark-theme .container p {
+    color: #bbbbbb;
 }
 
 .container input {
@@ -43,7 +64,13 @@ body {
     border: 1px solid #ced4da;
     border-radius: 5px;
     font-size: 16px;
-    transition: border 0.3s;
+    transition: border 0.3s, background 0.3s, color 0.3s;
+}
+
+body.dark-theme .container input {
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #444444;
 }
 
 .container input:focus {
@@ -111,4 +138,73 @@ body {
     .container input, .container button {
         font-size: 14px;
     }
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle input {
+    display: none;
+}
+
+.theme-toggle .toggle-label {
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    display: block;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.theme-toggle .toggle-label:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    transition: transform 0.3s;
+}
+
+.theme-toggle .toggle-label .fas {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.theme-toggle .toggle-label .fa-moon {
+    left: 8px;
+    opacity: 1;
+}
+
+.theme-toggle .toggle-label .fa-sun {
+    right: 8px;
+    opacity: 0;
+}
+
+input:checked + .toggle-label {
+    background: #007bff;
+}
+
+input:checked + .toggle-label:before {
+    transform: translateX(25px);
+}
+
+input:checked + .toggle-label .fa-moon {
+    opacity: 0;
+}
+
+input:checked + .toggle-label .fa-sun {
+    opacity: 1;
 }
